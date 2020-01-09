@@ -11,17 +11,17 @@ export default function PageNav() {
                     </NavLink>
                 </li>
                 <li className="side-nav__item">
-                    <NavLink to="/" className="side-nav__link">
+                    <NavLink to="/kanji_1" className="side-nav__link">
                         <span>Kanji 1</span>
                     </NavLink>
                 </li>
                 <li className="side-nav__item">
-                    <NavLink href="#" className="side-nav__link">
+                    <NavLink to="/kanji_2" className="side-nav__link">
                     <span>Kanji 2</span>
                     </NavLink>
                 </li>
                 <li className="side-nav__item">
-                    <NavLink href="#" className="side-nav__link">
+                    <NavLink to="/kanji_3" className="side-nav__link">
                         <span>Kanji 3</span>
                     </NavLink>
                 </li>
