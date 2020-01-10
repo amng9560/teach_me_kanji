@@ -218,8 +218,16 @@ body {
   }
 }
 
+.home-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .detail {
-  font-size: 1.4rem;
+  font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -241,6 +249,11 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
+
+.detail h2 {
+  font-weight: bolder;
+  color: #c40303;
 }
 
 .description {
@@ -269,5 +282,35 @@ body {
     margin-right: 0;
     margin-bottom: 3rem;
   }
+}
+
+.kanji-1 {
+  width: 60vw;
+}
+
+.kanji-1-characters {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 8px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 4rem;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: (100px)[6];
+      grid-template-columns: repeat(6, 100px);
+  -ms-grid-rows: 100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+  grid-auto-flow: column;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
