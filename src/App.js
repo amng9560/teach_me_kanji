@@ -15,16 +15,31 @@ class App extends Component {
 
   componentDidMount(){
     fetch('http://localhost:3000/kanjis')
-      .then(response => response.json)
-      .then(console.log)
+      .then(response => response.json())
+      .then(kanji => {
+        this.setState({ 
+          kanji,
+          characters: kanji.map(characters => characters.characters.flat())
+        })
+      })
   }
 
   render(){
+    const { characters } = this.state
+    const characterArray = characters.flat()
+    const firstGroupOfCharacters = characterArray.slice(0, 17)
+    const secondGroupOfCharacters = characterArray.slice(17, 34)
+    const thirdGroupOfCharacters = characterArray.slice(34, 51)
     return (
-      <Router>
+      <Router> 
         <div className="App">
           <UserNav />
-          <Content />
+          <Content 
+            firstGroup={firstGroupOfCharacters} 
+            secondGroup={secondGroupOfCharacters} 
+            thirdGroup={thirdGroupOfCharacters}
+            kanji={this.state.kanji}
+          />
         </div>
       </Router>
     );

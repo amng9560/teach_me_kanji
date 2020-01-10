@@ -1,14 +1,31 @@
 import React from 'react'
 
-export default function Home() {
+export default function Home({ kanji }) {
+
+    const kanjihistory = kanji.map(info => info.history)
+    const kanjiKunYomi = kanji.map(info => info.kunyomi)
+    const kanjiOnYomi = kanji.map(info => info.onyomi)
+
     return (
-        <div className="description">
-            <p className="paragraph">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis ratione sapiente saepe. Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
-            </p>
-            <p className="paragraph">
-                Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate delectus, inventore iure aliquid aliquam.
-            </p>
+        <div className="home-container">
+            <div className="description">
+                <h2>History</h2>
+                <p className="paragraph">
+                    {kanjihistory}
+                </p>
+            </div>
+            <div className="description">
+                <h2>Kun-Yomi</h2>
+                <p className="paragraph">
+                    {kanjiKunYomi}
+                </p>
+            </div>
+            <div className="description">
+                <h2>On-Yomi</h2>
+                <p className="paragraph">
+                    {kanjiOnYomi}
+                </p>
+            </div>
         </div>
     )
 }
