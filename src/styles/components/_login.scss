@@ -1,0 +1,73 @@
+.signInContainer {
+    width: 60vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h3, h4 {
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        transition: all .2s;
+    }
+
+    .signIn {
+        background-image: linear-gradient(105deg, 
+                                        rgba($color-white, .9) 0%,
+                                        rgba($color-white, .9) 50%,
+                                        transparent 50%) ,
+                                url(https://cdn.pixabay.com/photo/2017/11/09/12/37/maple-leaf-2933340_960_720.jpg);
+        background-size: 100%;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+        width: 55vw;
+        height: max-content;
+        padding: 6rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+.form {
+    &-input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 20vw;
+        display: block;
+        transition: all .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba(rgba($color-black, .2), .1);
+            border-bottom: 3px solid $primary-color;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $primary-color;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-3;
+        }
+    }
+    
+    .submitButton {
+        width: 20vw;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+}
