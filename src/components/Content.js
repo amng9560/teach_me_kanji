@@ -9,16 +9,16 @@ import {
   } from 'react-router-dom'
 
 
-export default function Content({ kanji, firstGroup, secondGroup, thirdGroup }) {
+export default function Content({ kanji, firstGroup, secondGroup, thirdGroup, createWord, words }) {
     return (
         <div className="content">
             <PageNav />
             <div className="detail">
                 <Switch>
                     <Route exact path="/" render={() =>  <Home kanji={kanji}/> }/>
-                    <Route exact path="/kanji_1" render={() =>  <KanjiContainer characters={firstGroup}/> }/>
-                    <Route exact path="/kanji_2" render={() =>  <KanjiContainer characters={secondGroup}/> }/>
-                    <Route exact path="/kanji_3" render={() =>  <KanjiContainer characters={thirdGroup}/> }/>
+                    <Route exact path="/kanji_1" render={() =>  <KanjiContainer words={words} createWord={createWord} characters={firstGroup}/> }/>
+                    <Route exact path="/kanji_2" render={() =>  <KanjiContainer words={words} createWord={createWord} characters={secondGroup}/> }/>
+                    <Route exact path="/kanji_3" render={() =>  <KanjiContainer words={words} createWord={createWord} characters={thirdGroup}/> }/>
                 </Switch>
             </div>
         </div>

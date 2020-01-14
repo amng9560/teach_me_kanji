@@ -7,37 +7,64 @@ import {
 import Content from './components/Content'
 import UserNav from './components/UserNav'
 
+const BASE_URL = 'http://localhost:3000/'
+
 class App extends Component {
   state = {
     kanji: [],
-    characters: []
+    characters: [],
+    words: []
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/kanjis')
+    fetch(`${BASE_URL}kanjis`)
       .then(response => response.json())
       .then(kanji => {
         this.setState({ 
           kanji,
-          characters: kanji.map(characters => characters.characters.flat())
+          characters: kanji.map(characters => characters.characters).flat()
         })
+      })
+    fetch(`${BASE_URL}words`)
+      .then(response => response.json())
+      .then(words => {
+        this.setState({ words })
+      })
+  }
+
+  fetchCall = (url, method, body) => {
+    const headers = {
+        "Content-Type": "application/json",
+    }
+    return fetch(url, {method, headers, body})
+  }
+
+  createWord = (word) => {
+    const body = JSON.stringify({...word})
+    return this.fetchCall(`${BASE_URL}words`, "POST", body)
+      .then(response => response.json())
+      .then(word => {
+        this.setState({
+          words: [...this.state.words, word]
+        }) 
       })
   }
 
   render(){
-    const { characters } = this.state
-    const characterArray = characters.flat()
-    const firstGroupOfCharacters = characterArray.slice(0, 17)
-    const secondGroupOfCharacters = characterArray.slice(17, 34)
-    const thirdGroupOfCharacters = characterArray.slice(34, 51)
+    const { characters, words } = this.state
+    const firstGroupOfCharacters = characters.slice(0, 17)
+    const secondGroupOfCharacters = characters.slice(17, 34)
+    const thirdGroupOfCharacters = characters.slice(34, 51)
     return (
       <Router> 
         <div className="App">
           <UserNav />
-          <Content 
+          <Content
+            words={words}
             firstGroup={firstGroupOfCharacters} 
             secondGroup={secondGroupOfCharacters} 
             thirdGroup={thirdGroupOfCharacters}
+            createWord={this.createWord}
             kanji={this.state.kanji}
           />
         </div>
