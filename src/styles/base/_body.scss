@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: $color-grey-dark;
+    background-image: url(https://wondrouspaths.com/wp-content/uploads/2018/08/IMG_2556-e1533257808645-1920x1619.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.App {
+    margin: 8rem auto;
+    background-color: $color-grey-light-1;
+    box-shadow: 0 2rem 6rem rgba(0,0,0,.3);
+    width: 80vw;
+    min-height: 100vh;
+
+    @media only screen and (max-width: 1100px) {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
