@@ -11,10 +11,25 @@ const BASE_URL = 'http://localhost:3000/'
 
 class App extends Component {
   state = {
+    user: false,
     kanji: [],
     characters: [],
     words: []
   }
+
+  // componentWillMount(){
+  //   if(sessionStorage.getItem('authToken')){
+  //     return fetch(`${BASE_URL}validate`, {
+  //       method: 'GET',
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Authorization": "Bearer " + sessionStorage.getItem('authToken')
+  //       }
+  //     })
+  //     .then(response => response.json())
+  //     .then(console.log)
+  //   }
+  // }
 
   componentDidMount(){
     fetch(`${BASE_URL}kanjis`)
@@ -30,6 +45,21 @@ class App extends Component {
       .then(words => {
         this.setState({ words })
       })
+  }
+
+  setUser = (response) => {
+    return (
+      sessionStorage.getItem('authToken')
+        ? this.setState({user: response})
+        : null
+    )
+  }
+
+  logOutUser = () => {
+    sessionStorage.removeItem('authToken')
+    this.setState({
+      user: false
+    })
   }
 
   fetchCall = (url, method, body) => {
@@ -51,14 +81,14 @@ class App extends Component {
   }
 
   render(){
-    const { characters, words } = this.state
+    const { characters, words, user } = this.state
     const firstGroupOfCharacters = characters.slice(0, 17)
     const secondGroupOfCharacters = characters.slice(17, 34)
     const thirdGroupOfCharacters = characters.slice(34, 51)
     return (
       <Router> 
         <div className="App">
-          <UserNav />
+          <UserNav loggedInUser={user} logOutUser={this.logOutUser}/>
           <Content
             words={words}
             firstGroup={firstGroupOfCharacters} 
@@ -66,6 +96,7 @@ class App extends Component {
             thirdGroup={thirdGroupOfCharacters}
             createWord={this.createWord}
             kanji={this.state.kanji}
+            setUser={this.setUser}
           />
         </div>
       </Router>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import WordContainer from './WordContainer'
-import KanjiCard from './KanjiCard'
-import KanjiInfo from './KanjiInfo'
+import WordContainer from '../components/WordContainer'
+import KanjiCard from '../components/KanjiCard'
+import KanjiInfo from '../components/KanjiInfo'
 
 export default class KanjiContainer extends Component {
     state = {

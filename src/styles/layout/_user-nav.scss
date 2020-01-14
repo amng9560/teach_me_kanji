@@ -1,0 +1,24 @@
+.user-nav {
+    align-self: stretch;
+    
+    display: flex;
+    align-items: center;
+
+    & > * {
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    & > *:hover {
+        background-color: $color-grey-light-2;
+    }
+
+    &-item {
+        font-size: 1.4rem;
+        text-decoration: none;
+        color: $color-grey-dark-3;
+    }    
+}
