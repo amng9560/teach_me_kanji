@@ -4,8 +4,8 @@ import './styles/style.css'
 import {
   BrowserRouter as Router
 } from 'react-router-dom'
-import Content from './components/Content'
-import UserNav from './components/UserNav'
+import Content from './containers/Content'
+import UserNav from './containers/UserNav'
 
 const BASE_URL = 'http://localhost:3000/'
 

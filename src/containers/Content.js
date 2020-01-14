@@ -1,7 +1,7 @@
 import React from 'react'
 import PageNav from './PageNav'
 import Home from './Home'
-import KanjiContainer from './KanjiContainer'
+import KanjiContainer from '../components/KanjiContainer'
 
 import {
     Switch, 
