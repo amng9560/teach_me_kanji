@@ -1,11 +1,11 @@
 import React from 'react'
-import AddNewWord from './AddNewWord'
+import WordForm from './WordForm'
 import WordList from './WordList'
 
 export default function WordContainer({ createWord, words }) {
     return (
         <div　className="word-container">
-            <AddNewWord createWord={createWord}/>
+            <WordForm submitHandler={createWord}/>
             <WordList words={words}/>
         </div>
     )

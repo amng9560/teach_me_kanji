@@ -11,7 +11,7 @@ import {
   } from 'react-router-dom'
 
 
-export default function Content({ kanji, firstGroup, secondGroup, thirdGroup, createWord, words, setUser }) {
+export default function Content({ kanji, firstGroup, secondGroup, thirdGroup, createWord, words, setUser, fetchUserWords, userWords, deleteUserWord, updateWord }) {
     return (
         <div className="content">
             <PageNav />
@@ -21,8 +21,8 @@ export default function Content({ kanji, firstGroup, secondGroup, thirdGroup, cr
                     <Route exact path="/kanji_1" render={() =>  <KanjiContainer words={words} createWord={createWord} characters={firstGroup}/> }/>
                     <Route exact path="/kanji_2" render={() =>  <KanjiContainer words={words} createWord={createWord} characters={secondGroup}/> }/>
                     <Route exact path="/kanji_3" render={() =>  <KanjiContainer words={words} createWord={createWord} characters={thirdGroup}/> }/>
-                    <Route exact path="/profile" render={() => <Profile />} />
-                    <Route exact path="/login" render={(props) => <RegistrationForm {...props} setUser={setUser}/>} />
+                    <Route exact path="/profile" render={() => <Profile userWords={userWords} deleteUserWord={deleteUserWord} updateWord={updateWord}/>} />
+                    <Route exact path="/login" render={(props) => <RegistrationForm {...props} setUser={setUser} fetchUserWords={fetchUserWords}/>} />
                 </Switch>
             </div>
         </div>
