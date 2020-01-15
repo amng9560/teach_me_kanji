@@ -70,7 +70,8 @@ class App extends Component {
   }
 
   createWord = (word) => {
-    const body = JSON.stringify({...word})
+    const { user } = this.state
+    const body = JSON.stringify({...word, user_id: user.id})
     return this.fetchCall(`${BASE_URL}words`, "POST", body)
       .then(response => response.json())
       .then(word => {
