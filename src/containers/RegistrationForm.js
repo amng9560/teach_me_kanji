@@ -88,6 +88,9 @@ export default class RegistrationForm extends Component {
                 sessionStorage.setItem('authToken', response.auth_token)
                 this.props.setUser(response.user)
             })
+            .then(response => {
+                this.props.fetchUserWords()
+            })
             .catch(error => console.log(error))
     }
 

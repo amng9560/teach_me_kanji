@@ -14,7 +14,8 @@ class App extends Component {
     user: false,
     kanji: [],
     characters: [],
-    words: []
+    words: [],
+    userWords: [],
   }
 
   // componentWillMount(){
@@ -65,6 +66,7 @@ class App extends Component {
   fetchCall = (url, method, body) => {
     const headers = {
         "Content-Type": "application/json",
+        "Authorization": "Bearer " + sessionStorage.getItem('authToken')
     }
     return fetch(url, {method, headers, body})
   }
@@ -81,8 +83,53 @@ class App extends Component {
       })
   }
 
+  fetchUserWords = () => {
+    const { user } = this.state
+    return this.fetchCall(`${BASE_URL}users/${user.id}`)
+      .then(response => response.json())
+      .then(user => {
+        this.setState({
+          userWords: user.words.flat()
+        })
+      })
+  }
+  
+  deleteUserWord = (word) => {
+    const { user } = this.state
+    const body = JSON.stringify({user: {user_id: user.id, removeword: word.id}})
+    const newState = this.state.userWords.filter(userWord => userWord.id !== word.id)
+    this.setState({ userWords: newState })
+
+    return this.fetchCall(`${BASE_URL}users/${user.id}?removeword=${word.id}`, "PATCH", body)
+  }
+
+  updateWord = (id, word) => {
+    const body = JSON.stringify({...word})
+    return this.fetchCall(`${BASE_URL}words/${id}`, "PATCH", body)
+      .then(() => {
+        this.setState({
+          words: [...this.state.words.map(existingWord => {
+            if(existingWord.id === id){
+              return Object.assign(existingWord, word)
+            } else {
+              return existingWord
+            }
+           })
+          ],
+          userWords: [...this.state.userWords.map(existingWord => {
+            if(existingWord.id === id){
+              return Object.assign(existingWord, word)
+            } else {
+             return existingWord
+            }
+           })
+          ]
+        })
+      })
+  }
+
   render(){
-    const { characters, words, user } = this.state
+    const { characters, words, user, userWords } = this.state
     const firstGroupOfCharacters = characters.slice(0, 17)
     const secondGroupOfCharacters = characters.slice(17, 34)
     const thirdGroupOfCharacters = characters.slice(34, 51)
@@ -98,6 +145,10 @@ class App extends Component {
             createWord={this.createWord}
             kanji={this.state.kanji}
             setUser={this.setUser}
+            fetchUserWords={this.fetchUserWords}
+            userWords={userWords}
+            deleteUserWord={this.deleteUserWord}
+            updateWord={this.updateWord}
           />
         </div>
       </Router>

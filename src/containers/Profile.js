@@ -1,9 +1,10 @@
 import React from 'react'
+import WordList from '../components/WordList'
 
-export default function Profile() {
+export default function Profile({ userWords, deleteUserWord, updateWord }) {
     return (
-        <div>
-            <h3>Hello</h3>
+        <div className="profile">
+            <WordList userWords={userWords} deleteUserWord={deleteUserWord} updateWord={updateWord}/>
         </div>
     )
 }

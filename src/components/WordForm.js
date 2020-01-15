@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 
-export default class AddNewWord extends Component {
+export default class WordForm extends Component {
     state = {
         word: "",
         meaning: ""
+    }
+
+    componentDidMount(){
+        this.props.defaultValues && this.setState(this.props.defaultValues)
     }
 
     handleChange = (event) => {
@@ -15,9 +19,11 @@ export default class AddNewWord extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const { createWord } = this.props
-
-        createWord(this.state)
+        const { submitHandler, toggleForm } = this.props
+        if (toggleForm) {
+            toggleForm()
+        }
+        submitHandler(this.state)
         this.setState({
             word: "",
             meaning: ""
