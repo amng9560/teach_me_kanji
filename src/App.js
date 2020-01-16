@@ -59,7 +59,8 @@ class App extends Component {
   logOutUser = () => {
     sessionStorage.removeItem('authToken')
     this.setState({
-      user: false
+      user: false,
+      userWords: []
     })
   }
 
@@ -76,12 +77,29 @@ class App extends Component {
     const body = JSON.stringify({...word, user_id: user.id})
     return this.fetchCall(`${BASE_URL}words`, "POST", body)
       .then(response => response.json())
-      .then(word => {
-        this.setState({
-          words: [...this.state.words, word]
-        }) 
-      })
+      .then(word => this.setWordState(word))
   }
+
+  setWordState = (word) => {
+    const { words, userWords, user } = this.state
+    console.log()
+    if(this.filterWords(words, word).length === 0){
+      this.setState({
+        words: [...words, word]
+      })
+    }
+    if(this.filterWords(userWords, word).length === 0 && user){
+      this.setState({
+        userWords: [...userWords, word]
+      })
+    }
+  }
+
+  filterWords = (state, givenWord) => {
+    return state.filter(item => item.word === givenWord.word)
+  }
+
+
 
   fetchUserWords = () => {
     const { user } = this.state
@@ -108,24 +126,20 @@ class App extends Component {
     return this.fetchCall(`${BASE_URL}words/${id}`, "PATCH", body)
       .then(() => {
         this.setState({
-          words: [...this.state.words.map(existingWord => {
-            if(existingWord.id === id){
-              return Object.assign(existingWord, word)
-            } else {
-              return existingWord
-            }
-           })
+          words: [...this.state.words.map(existingWord => this.updatingWordState(existingWord, id, word))
           ],
-          userWords: [...this.state.userWords.map(existingWord => {
-            if(existingWord.id === id){
-              return Object.assign(existingWord, word)
-            } else {
-             return existingWord
-            }
-           })
+          userWords: [...this.state.userWords.map(existingWord => this.updatingWordState(existingWord, id, word))
           ]
         })
       })
+  }
+
+  updatingWordState = (existingWord, id, word) => {
+    if(existingWord.id === id){
+      return Object.assign(existingWord, word)
+    } else {
+     return existingWord
+    }
   }
 
   render(){
