@@ -22,18 +22,20 @@ export default class ProfileWordCard extends Component {
                 <div className="profile-word-list-items">
                     <h3>{userWord.word}</h3>
                     <p>{userWord.meaning}</p>
-                    <img 
-                        className='profile-word-list-items-edit'
-                        onClick={this.toggleForm}
-                        src='https://image.flaticon.com/icons/svg/1159/1159633.svg' 
-                        alt='update button'
-                    />
-                    <img 
-                        className='profile-word-list-items-delete' 
-                        onClick={() => deleteUserWord(userWord)} 
-                        src='https://image.flaticon.com/icons/svg/59/59836.svg' 
-                        alt='delete button'
-                    />
+                    <div className="profile-word-list-items-buttons">
+                        <img 
+                            className='profile-word-list-items-edit'
+                            onClick={this.toggleForm}
+                            src='https://image.flaticon.com/icons/svg/1159/1159633.svg' 
+                            alt='update button'
+                        />
+                        <img 
+                            className='profile-word-list-items-delete' 
+                            onClick={() => deleteUserWord(userWord)} 
+                            src='https://image.flaticon.com/icons/svg/59/59836.svg' 
+                            alt='delete button'
+                        />
+                    </div>
                 </div>
                 <div className="profile-word-list-form">
                     {this.state.showForm

@@ -90,6 +90,7 @@ export default class RegistrationForm extends Component {
             })
             .then(response => {
                 this.props.fetchUserWords()
+                this.props.history.push('/')
             })
             .catch(error => console.log(error))
     }

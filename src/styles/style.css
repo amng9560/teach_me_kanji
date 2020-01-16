@@ -240,7 +240,7 @@ body {
 .profile {
   width: 55vw;
   height: 70vh;
-  background: lightgrey;
+  background: #d3d3d3a1;
 }
 
 .profile-word-list {
@@ -249,27 +249,52 @@ body {
   overflow: scroll;
   background-color: #d3d3d3a1;
   padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  margin-top: 1rem;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .profile-word-list-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 30vw;
+  width: 22vw;
+  margin-bottom: 5px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-bottom: 5px;
+  padding-left: 2rem;
 }
 
 .profile-word-list-items {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: (15rem)[3];
+      grid-template-columns: repeat(3, 15rem);
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-word-list-items-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin-bottom: 10px;
+}
+
+.profile-word-list-items-buttons img {
+  height: 20px;
+  margin-left: 10px;
+  width: 20px;
 }
 
 .profile-word-list-items p {
@@ -292,11 +317,6 @@ body {
   color: #d00000a8;
   background-color: #e0e0e0;
   font-size: 3rem;
-}
-
-.profile-word-list-items img {
-  height: 20px;
-  width: 20px;
 }
 
 .profile-word-list-form {
