@@ -1,7 +1,12 @@
+.page-container{
+    width: 65vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
 .profile {
     width: 55vw;
     height: 70vh;
-    background: $color-grey-dark-2;
 
     &-loading {
         display: flex;
@@ -15,7 +20,7 @@
         font-size: smaller;
         height: inherit;
         overflow: scroll;
-        background-color: $color-grey-dark-2;
+        background-color: $color-grey-light-4;
         padding: 1rem;
         display: grid;
         margin-top: 1rem;
@@ -26,14 +31,15 @@
 
         &-header {
             display: flex;
-            width: 22vw;
+            width: 12vw;
             margin-bottom: 5px;
             justify-content: space-evenly;
-            padding-left: 2rem;
+            padding-left: 1rem;
         }
 
         &-items {
-            display: grid;grid-gap: 10px;
+            display: grid;
+            grid-gap: 4.5rem;
             grid-template-columns: repeat(3, 15rem);
             justify-items: center;
             align-items: center;
@@ -62,7 +68,6 @@
 
             h3 {
                 color: $primary-color-dark;
-                background-color: $color-grey-light-3;
                 font-size: 3rem;
             }
         }

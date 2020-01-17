@@ -2,7 +2,7 @@ import React from 'react'
 import WordCard from './WordCard'
 import ProfileWordCard from './ProfileWordCard'
 
-export default function WordList({ words, userWords, deleteUserWord, updateWord }) {
+export default function WordList({ words, userWords, deleteUserWord, updateWord, loading }) {
     const availableWords = () => {
         return words.map((word, i) => {
             return (
@@ -27,12 +27,12 @@ export default function WordList({ words, userWords, deleteUserWord, updateWord 
             </div>
             {availableWords()}
             </div>)
-        :  <div className="profile-word-list">
-                <div className="profile-word-list-header">
-                    <h3>Words:</h3>
-                    <h3>Meaning:</h3>
-                </div>
-                {UserWords()}
+        : <div className="profile-word-list">
+            <div className="profile-word-list-header">
+                <h3>Words:</h3>
+                <h3>Meaning:</h3>
             </div>
+            {UserWords()}
+        </div>
 
 }

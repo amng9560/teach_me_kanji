@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import WordContainer from '../components/WordContainer'
 import KanjiCard from '../components/KanjiCard'
 import KanjiInfo from '../components/KanjiInfo'
+import Ml5Video from '../components/Ml5Video'
 
 export default class KanjiContainer extends Component {
     state = {
