@@ -37,7 +37,7 @@ body {
   background-color: #faf9f9;
   -webkit-box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
           box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  width: 80vw;
+  width: 85vw;
   min-height: 100vh;
 }
 
@@ -237,10 +237,20 @@ body {
   color: #333;
 }
 
+.page-container {
+  width: 65vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .profile {
   width: 55vw;
   height: 70vh;
-  background: #d3d3d3a1;
 }
 
 .profile-loading {
@@ -261,7 +271,7 @@ body {
   font-size: smaller;
   height: inherit;
   overflow: scroll;
-  background-color: #d3d3d3a1;
+  background-color: #d8d8d8;
   padding: 1rem;
   display: -ms-grid;
   display: grid;
@@ -278,18 +288,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 22vw;
+  width: 12vw;
   margin-bottom: 5px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 .profile-word-list-items {
   display: -ms-grid;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 4.5rem;
   -ms-grid-columns: (15rem)[3];
       grid-template-columns: repeat(3, 15rem);
   justify-items: center;
@@ -329,7 +339,6 @@ body {
 
 .profile-word-list-items h3 {
   color: #d00000a8;
-  background-color: #e0e0e0;
   font-size: 3rem;
 }
 
@@ -350,6 +359,7 @@ body {
   padding: 3.5rem;
   background-color: #faf9f9;
   border-bottom: 1px solid #f4f2f2;
+  width: 71vw;
 }
 
 @media only screen and (max-width: 900px) {
@@ -420,6 +430,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-left: 2rem;
+  padding-right: 2rem;
+  width: 66vw;
 }
 
 .kanji-1-video-container {
@@ -433,8 +445,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 18vw;
-  height: 32vh;
+  width: 24vw;
+  height: 42vh;
 }
 
 .kanji-1-characters {
@@ -444,6 +456,9 @@ body {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   font-size: 4rem;
   display: -ms-grid;
   display: grid;
@@ -457,12 +472,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-right: 5px;
+  margin-right: 10px;
 }
 
 .kanji-1-video {
-  min-width: 20vw;
-  width: auto;
-  height: 32vh;
+  width: -webkit-fill-available;
+  height: 26vh;
   background-color: black;
 }
 
@@ -552,7 +568,7 @@ body {
 
 .word-container {
   height: 50vh;
-  width: 60vw;
+  width: 66vw;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -581,8 +597,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 25vw;
-  height: 30vh;
+  width: 28vw;
+  height: 39vh;
   background-color: #d3d3d3a1;
 }
 
@@ -647,8 +663,8 @@ body {
 
 .word-list {
   font-size: smaller;
-  width: 25vw;
-  height: 30vh;
+  width: 28vw;
+  height: 39vh;
   overflow: scroll;
   background-color: #d3d3d3a1;
   padding: 1rem;
