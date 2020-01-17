@@ -16,21 +16,32 @@ class App extends Component {
     characters: [],
     words: [],
     userWords: [],
+    loading: true,
   }
 
-  // componentWillMount(){
-  //   if(sessionStorage.getItem('authToken')){
-  //     return fetch(`${BASE_URL}validate`, {
-  //       method: 'GET',
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "Authorization": "Bearer " + sessionStorage.getItem('authToken')
-  //       }
-  //     })
-  //     .then(response => response.json())
-  //     .then(console.log)
-  //   }
-  // }
+  componentWillMount(){
+    if(localStorage.getItem('authToken')){
+      return fetch(`${BASE_URL}validate`, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + localStorage.getItem('authToken')
+        }
+      })
+      .then(response => response.json())
+      .then(user => {
+        this.setState({ user })
+      })
+      .then(() => {
+        this.fetchUserWords()
+      })
+      .then(() => {
+        this.setState({
+          loading: false
+        })
+      })
+    }
+  }
 
   componentDidMount(){
     fetch(`${BASE_URL}kanjis`)
@@ -50,14 +61,14 @@ class App extends Component {
 
   setUser = (response) => {
     return (
-      sessionStorage.getItem('authToken')
+      localStorage.getItem('authToken')
         ? this.setState({user: response})
         : null
     )
   }
 
   logOutUser = () => {
-    sessionStorage.removeItem('authToken')
+    localStorage.removeItem('authToken')
     this.setState({
       user: false,
       userWords: []
@@ -67,7 +78,7 @@ class App extends Component {
   fetchCall = (url, method, body) => {
     const headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + sessionStorage.getItem('authToken')
+        "Authorization": "Bearer " + localStorage.getItem('authToken')
     }
     return fetch(url, {method, headers, body})
   }
@@ -85,7 +96,8 @@ class App extends Component {
     console.log()
     if(this.filterWords(words, word).length === 0){
       this.setState({
-        words: [...words, word]
+        words: [...words, word],
+        loading: false,
       })
     }
     if(this.filterWords(userWords, word).length === 0 && user){
@@ -99,15 +111,14 @@ class App extends Component {
     return state.filter(item => item.word === givenWord.word)
   }
 
-
-
   fetchUserWords = () => {
     const { user } = this.state
     return this.fetchCall(`${BASE_URL}users/${user.id}`)
       .then(response => response.json())
-      .then(user => {
+      .then(response => {
+        console.log(response)
         this.setState({
-          userWords: user.words.flat()
+          userWords: response.words.flat()
         })
       })
   }
@@ -126,10 +137,15 @@ class App extends Component {
     return this.fetchCall(`${BASE_URL}words/${id}`, "PATCH", body)
       .then(() => {
         this.setState({
-          words: [...this.state.words.map(existingWord => this.updatingWordState(existingWord, id, word))
+          words: [...this.state.words.map(
+            existingWord => this.updatingWordState(existingWord, id, word)
+            )
           ],
-          userWords: [...this.state.userWords.map(existingWord => this.updatingWordState(existingWord, id, word))
-          ]
+          userWords: [...this.state.userWords.map(
+            existingWord => this.updatingWordState(existingWord, id, word)
+            )
+          ],
+          loading: false,
         })
       })
   }
@@ -143,7 +159,7 @@ class App extends Component {
   }
 
   render(){
-    const { characters, words, user, userWords } = this.state
+    const { characters, words, user, userWords, loading } = this.state
     const firstGroupOfCharacters = characters.slice(0, 17)
     const secondGroupOfCharacters = characters.slice(17, 34)
     const thirdGroupOfCharacters = characters.slice(34, 51)
@@ -151,7 +167,7 @@ class App extends Component {
       <Router> 
         <div className="App">
           <UserNav loggedInUser={user} logOutUser={this.logOutUser}/>
-          <Content
+            <Content
             words={words}
             firstGroup={firstGroupOfCharacters} 
             secondGroup={secondGroupOfCharacters} 
@@ -163,6 +179,7 @@ class App extends Component {
             userWords={userWords}
             deleteUserWord={this.deleteUserWord}
             updateWord={this.updateWord}
+            loading={loading}
           />
         </div>
       </Router>

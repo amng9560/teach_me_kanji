@@ -1,16 +1,28 @@
 .kanji-1{ 
     width: 60vw;
 
+    &-container{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2rem;
+    }
+
+    &-video-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 18vw;
+        height: 32vh;
+    }
+
     &-characters{
         border-style: solid;
         border-width: 3px;
         border-radius: 8px;
-        height: max-content;
         width: max-content;
         font-size: 4rem;
-        padding: 10px;
         display: grid;
-        grid-gap: 10px;
+        grid-gap: 2px;
         grid-template-columns: repeat(6, 100px);
         grid-template-rows: 100px 100px 100px;
         grid-auto-flow: column;
@@ -19,13 +31,34 @@
 
     }
 
+    &-video {
+        min-width: 20vw;
+        width: auto;
+        height: 32vh;
+        background-color: black;
+    }
+
+    &-button{
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
     &-info {
         border-style: solid;
         border-width: 3px;
         border-radius: 8px;
         min-height: 346px;
         max-height: max-content;
-        width: 676px;
+        min-width: 616px;
+        max-width: max-content;
         font-size: 4rem;
         padding: 10px;
         font-size: 2rem;
@@ -54,7 +87,7 @@
             }
 
             p{
-                width: 25vw;
+                width: 20vw;
                 font-size: 2.5rem;
             }
         }

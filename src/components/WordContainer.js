@@ -2,7 +2,7 @@ import React from 'react'
 import WordForm from './WordForm'
 import WordList from './WordList'
 
-export default function WordContainer({ createWord, words }) {
+export default function WordContainer({ createWord, words, loading }) {
     return (
         <div　className="word-container">
             <WordForm submitHandler={createWord}/>

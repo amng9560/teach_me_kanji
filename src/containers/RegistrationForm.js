@@ -85,7 +85,7 @@ export default class RegistrationForm extends Component {
         fetch("http://localhost:3000/authenticate", request)
             .then(response => response.json())
             .then(response => {
-                sessionStorage.setItem('authToken', response.auth_token)
+                localStorage.setItem('authToken', response.auth_token)
                 this.props.setUser(response.user)
             })
             .then(response => {
