@@ -16,7 +16,8 @@ class App extends Component {
     characters: [],
     words: [],
     userWords: [],
-    loading: true,
+    activeKanji: null,
+    toggleVideo: false,
   }
 
   componentWillMount(){
@@ -57,6 +58,30 @@ class App extends Component {
       .then(words => {
         this.setState({ words })
       })
+  }
+
+  setActiveKanji = (kanji) => {
+    this.setState({
+        activeKanji: kanji
+    })
+  }
+
+  resetActiveKanji = () => {
+      this.setState({
+          activeKanji: null
+      })
+  }
+
+  toggleVideoState = () => {
+      this.setState({
+          toggleVideo: !this.state.toggleVideo
+      })
+  }
+
+  resetVideoState = () => {
+    this.setState({
+      toggleVideo: false
+    })
   }
 
   setUser = (response) => {
@@ -159,7 +184,7 @@ class App extends Component {
   }
 
   render(){
-    const { characters, words, user, userWords, loading } = this.state
+    const { characters, words, user, userWords, activeKanji, toggleVideo } = this.state
     const firstGroupOfCharacters = characters.slice(0, 17)
     const secondGroupOfCharacters = characters.slice(17, 34)
     const thirdGroupOfCharacters = characters.slice(34, 51)
@@ -168,18 +193,23 @@ class App extends Component {
         <div className="App">
           <UserNav loggedInUser={user} logOutUser={this.logOutUser}/>
             <Content
-            words={words}
-            firstGroup={firstGroupOfCharacters} 
-            secondGroup={secondGroupOfCharacters} 
-            thirdGroup={thirdGroupOfCharacters}
-            createWord={this.createWord}
-            kanji={this.state.kanji}
-            setUser={this.setUser}
-            fetchUserWords={this.fetchUserWords}
-            userWords={userWords}
-            deleteUserWord={this.deleteUserWord}
-            updateWord={this.updateWord}
-            loading={loading}
+              words={words}
+              firstGroup={firstGroupOfCharacters} 
+              secondGroup={secondGroupOfCharacters} 
+              thirdGroup={thirdGroupOfCharacters}
+              createWord={this.createWord}
+              kanji={this.state.kanji}
+              setUser={this.setUser}
+              fetchUserWords={this.fetchUserWords}
+              userWords={userWords}
+              deleteUserWord={this.deleteUserWord}
+              updateWord={this.updateWord}
+              setActiveKanji={this.setActiveKanji}
+              resetActiveKanji={this.resetActiveKanji}
+              toggleVideoState={this.toggleVideoState}
+              activeKanji={activeKanji}
+              toggleVideo={toggleVideo}
+              resetVideoState={this.resetVideoState}
           />
         </div>
       </Router>

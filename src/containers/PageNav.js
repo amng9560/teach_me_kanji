@@ -1,29 +1,29 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default function PageNav() {
+export default function PageNav({ resetActiveKanji, resetVideoState }) {
     return (
         <nav className="sidebar">
             <ul className="side-nav">
                 <li className="side-nav__item">
-                    <NavLink to="/" className="side-nav__link">
-                        Home
-                    </NavLink>
+                    <Link to="/" className="side-nav__link" onClick={() => {resetActiveKanji(); resetVideoState()}}>
+                        <span>Home</span>
+                    </Link>
                 </li>
                 <li className="side-nav__item">
-                    <NavLink to="/kanji_1" className="side-nav__link">
+                    <Link to="/kanji_1" className="side-nav__link" onClick={() => {resetActiveKanji(); resetVideoState()}}>
                         <span>Kanji 1</span>
-                    </NavLink>
+                    </Link>
                 </li>
                 <li className="side-nav__item">
-                    <NavLink to="/kanji_2" className="side-nav__link">
-                    <span>Kanji 2</span>
-                    </NavLink>
+                    <Link to="/kanji_2" className="side-nav__link" onClick={() => {resetActiveKanji(); resetVideoState()}}>
+                        <span>Kanji 2</span>
+                    </Link>
                 </li>
                 <li className="side-nav__item">
-                    <NavLink to="/kanji_3" className="side-nav__link">
+                    <Link to="/kanji_3" className="side-nav__link" onClick={() => {resetActiveKanji(); resetVideoState()}}>
                         <span>Kanji 3</span>
-                    </NavLink>
+                    </Link>
                 </li>
             </ul>
             <div className="legal">
