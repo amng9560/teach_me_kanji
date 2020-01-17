@@ -243,6 +243,20 @@ body {
   background: #d3d3d3a1;
 }
 
+.profile-loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 55vw;
+  height: 70vh;
+}
+
 .profile-word-list {
   font-size: smaller;
   height: inherit;
@@ -333,7 +347,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 4.5rem;
+  padding: 3.5rem;
   background-color: #faf9f9;
   border-bottom: 1px solid #f4f2f2;
 }
@@ -398,21 +412,42 @@ body {
   width: 60vw;
 }
 
+.kanji-1-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 2rem;
+}
+
+.kanji-1-video-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 18vw;
+  height: 32vh;
+}
+
 .kanji-1-characters {
   border-style: solid;
   border-width: 3px;
   border-radius: 8px;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   font-size: 4rem;
-  padding: 10px;
   display: -ms-grid;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 2px;
   -ms-grid-columns: (100px)[6];
       grid-template-columns: repeat(6, 100px);
   -ms-grid-rows: 100px 100px 100px;
@@ -424,6 +459,27 @@ body {
           align-items: center;
 }
 
+.kanji-1-video {
+  min-width: 20vw;
+  width: auto;
+  height: 32vh;
+  background-color: black;
+}
+
+.kanji-1-button {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  display: inline-block;
+  border-radius: 10rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .kanji-1-info {
   border-style: solid;
   border-width: 3px;
@@ -432,7 +488,10 @@ body {
   max-height: -webkit-max-content;
   max-height: -moz-max-content;
   max-height: max-content;
-  width: 676px;
+  min-width: 616px;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   font-size: 4rem;
   padding: 10px;
   font-size: 2rem;
@@ -473,7 +532,7 @@ body {
 }
 
 .kanji-1-info .kanji-data p {
-  width: 25vw;
+  width: 20vw;
   font-size: 2.5rem;
 }
 
@@ -712,7 +771,7 @@ body {
   color: #333;
 }
 
-.form .submitButton {
+.form .form-submit {
   width: 20vw;
   text-transform: uppercase;
   text-decoration: none;
