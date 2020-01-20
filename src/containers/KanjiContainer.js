@@ -12,7 +12,8 @@ export default function KanjiContainer ({
     resetActiveKanji, 
     toggleVideoState, 
     activeKanji, 
-    toggleVideo,  
+    toggleVideo,
+    imageModelURL  
     }) 
 {
     const characterContainer = () => {
@@ -33,9 +34,9 @@ export default function KanjiContainer ({
                 <div className="kanji-1-video-container">
                     <button onClick={toggleVideoState} className="kanji-1-button">Toggle Video</button>
                     { toggleVideo
-                        ? <div className="kanji-1-video"></div>
+                        ? <Ml5Video imageModelURL={imageModelURL}/>
                         : null
-                    }
+                    } 
                 </div>
             </div>
             <WordContainer words={words} createWord={createWord} />

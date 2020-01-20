@@ -25,6 +25,11 @@ export default function PageNav({ resetActiveKanji, resetVideoState }) {
                         <span>Kanji 3</span>
                     </Link>
                 </li>
+                <li className="side-nav__item">
+                    <Link to="/quiz" className="side-nav__link" onClick={() => {resetActiveKanji(); resetVideoState()}}>
+                        <span>Quizzes</span>
+                    </Link>
+                </li>
             </ul>
             <div className="legal">
                 Footer to put github and linked in

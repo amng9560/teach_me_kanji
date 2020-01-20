@@ -418,6 +418,17 @@ body {
       flex-wrap: wrap;
 }
 
+.video {
+  width: 350px;
+  height: 240px;
+}
+
+#defaultCanvas0 {
+  position: absolute;
+  bottom: 43rem;
+  right: 27rem;
+}
+
 .kanji-1 {
   width: 60vw;
 }
@@ -476,14 +487,8 @@ body {
   margin-right: 10px;
 }
 
-.kanji-1-video {
-  width: -webkit-fill-available;
-  height: 26vh;
-  background-color: black;
-}
-
 .kanji-1-button {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   text-decoration: none;
   padding: 1rem 2rem;
@@ -702,7 +707,6 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  overflow: scroll;
   color: #151515;
   -webkit-box-shadow: 0 2rem 4rem #21212131;
           box-shadow: 0 2rem 4rem #21212131;
@@ -799,5 +803,11 @@ body {
   position: relative;
   font-size: 1rem;
   margin: 10px 0;
+}
+
+.quiz {
+  background-color: blue;
+  height: 90vh;
+  width: 64vw;
 }
 /*# sourceMappingURL=style.css.map */
