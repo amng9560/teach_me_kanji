@@ -1,3 +1,14 @@
+.video {
+    width: 350px;
+    height: 240px;
+}
+
+#defaultCanvas0{
+    position: absolute;
+    bottom: 43rem;
+    right: 27rem;
+}
+
 .kanji-1{ 
     width: 60vw;
 
@@ -35,14 +46,8 @@
         margin-right: 10px;
     }
 
-    &-video {
-        width: -webkit-fill-available;
-        height: 26vh;
-        background-color: black;
-    }
-
     &-button{
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         text-transform: uppercase;
         text-decoration: none;
         padding: 1rem 2rem;

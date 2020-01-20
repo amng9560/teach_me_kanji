@@ -11,7 +11,7 @@ export default function Home({ kanji }) {
             <div className="description">
                 <h2>History</h2>
                 <p className="paragraph">
-                    {kanjihistory}
+                    {kanjihistory}. 
                 </p>
             </div>
             <div className="description">

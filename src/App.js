@@ -18,6 +18,7 @@ class App extends Component {
     userWords: [],
     activeKanji: null,
     toggleVideo: false,
+    questions: [],
   }
 
   componentWillMount(){
@@ -183,8 +184,16 @@ class App extends Component {
     }
   }
 
+  getQuestions = () => {
+    fetch(`${BASE_URL}questions`)
+      .then(response => response.json())
+      .then(questions => {
+        this.setState({ questions })
+      })
+  }
+
   render(){
-    const { characters, words, user, userWords, activeKanji, toggleVideo } = this.state
+    const { characters, words, user, userWords, activeKanji, toggleVideo, questions } = this.state
     const firstGroupOfCharacters = characters.slice(0, 17)
     const secondGroupOfCharacters = characters.slice(17, 34)
     const thirdGroupOfCharacters = characters.slice(34, 51)
@@ -210,6 +219,8 @@ class App extends Component {
               activeKanji={activeKanji}
               toggleVideo={toggleVideo}
               resetVideoState={this.resetVideoState}
+              getQuestions={this.getQuestions}
+              questions={questions}
           />
         </div>
       </Router>

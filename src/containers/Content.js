@@ -4,6 +4,7 @@ import Home from './Home'
 import KanjiContainer from './KanjiContainer'
 import Profile from './Profile'
 import RegistrationForm from './RegistrationForm'
+import Quiz from './Quiz'
 
 import {
     Switch, 
@@ -28,7 +29,9 @@ export default function Content({
     toggleVideoState, 
     activeKanji, 
     toggleVideo,
-    resetVideoState
+    resetVideoState,
+    getQuestions,
+    questions
     }) 
 {
     return (
@@ -47,6 +50,7 @@ export default function Content({
                             toggleVideoState={toggleVideoState} 
                             activeKanji={activeKanji} 
                             toggleVideo={toggleVideo}
+                            imageModelURL='/model1/'
                         />)
                     }/>
                     <Route exact path="/kanji_2" render={() =>  (
@@ -59,6 +63,7 @@ export default function Content({
                             toggleVideoState={toggleVideoState} 
                             activeKanji={activeKanji} 
                             toggleVideo={toggleVideo}
+                            imageModelURL='/model2/'
                         />)
                     }/>
                     <Route exact path="/kanji_3" render={() =>  (
@@ -71,10 +76,24 @@ export default function Content({
                             toggleVideoState={toggleVideoState} 
                             activeKanji={activeKanji} 
                             toggleVideo={toggleVideo}
+                            imageModelURL='/model3/'
                         />)
                     }/>
-                    <Route exact path="/profile" render={() => <Profile userWords={userWords} deleteUserWord={deleteUserWord} updateWord={updateWord}/>} />
-                    <Route exact path="/login" render={(props) => <RegistrationForm {...props} setUser={setUser} fetchUserWords={fetchUserWords}/>} />
+                    <Route exact path="/profile" render={() => (
+                        <Profile 
+                            userWords={userWords} 
+                            deleteUserWord={deleteUserWord} 
+                            updateWord={updateWord}
+                        />)
+                        }/>
+                    <Route exact path="/login" render={(props) => (
+                        <RegistrationForm 
+                            {...props} 
+                            setUser={setUser} 
+                            fetchUserWords={fetchUserWords}
+                        />)
+                    }/>
+                    <Route exact path="/quiz" render={() => (<Quiz getQuestions={getQuestions} questions={questions}/>)}/>
                 </Switch>
             </div>
         </div>
