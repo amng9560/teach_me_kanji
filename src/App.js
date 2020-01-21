@@ -142,7 +142,6 @@ class App extends Component {
     return this.fetchCall(`${BASE_URL}users/${user.id}`)
       .then(response => response.json())
       .then(response => {
-        console.log(response)
         this.setState({
           userWords: response.words.flat()
         })
