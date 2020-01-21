@@ -5,11 +5,10 @@ import KanjiContainer from './KanjiContainer'
 import Profile from './Profile'
 import RegistrationForm from './RegistrationForm'
 import Quiz from './Quiz'
-
 import {
     Switch, 
     Route
-  } from 'react-router-dom'
+} from 'react-router-dom'
 
 
 export default function Content({ 
@@ -93,7 +92,7 @@ export default function Content({
                             fetchUserWords={fetchUserWords}
                         />)
                     }/>
-                    <Route exact path="/quiz" render={() => (<Quiz getQuestions={getQuestions} questions={questions}/>)}/>
+                    <Route path="/quiz" render={() => (<Quiz getQuestions={getQuestions} questions={questions}/>)}/>
                 </Switch>
             </div>
         </div>

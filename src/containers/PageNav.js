@@ -32,7 +32,8 @@ export default function PageNav({ resetActiveKanji, resetVideoState }) {
                 </li>
             </ul>
             <div className="legal">
-                Footer to put github and linked in
+                <a href="https://github.com/amng9560" className="github"><i className="sm-icon"><img alt="github" className="sm-icon" src="https://freeiconshop.com/wp-content/uploads/edd/linkedin-outline.png"></img></i></a>
+                <a href="https://www.linkedin.com/in/amy-vy-nguyen/" className="linkedIn"><i className="linkedIn"><img alt="LinkedIn" className="sm-icon" src="https://www.shareicon.net/data/256x256/2017/03/07/880593_media_512x512.png"></img></i></a>
             </div>
         </nav>
     )
