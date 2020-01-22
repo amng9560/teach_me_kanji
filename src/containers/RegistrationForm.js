@@ -50,6 +50,7 @@ export default class RegistrationForm extends Component {
     }
 
     handleSubmit = (event) => {
+        console.log("hello")
         event.preventDefault()
         const request = {
             method: "POST",
@@ -75,22 +76,32 @@ export default class RegistrationForm extends Component {
             .then(response => response.json())
             .then(response => {
                 if (!response.error) {
-                this.logIn(request)
-                } 
+                    this.logIn(request)
+                } else {
+                    this.props.setErrorState(response)
+                }
             })
             .catch(error => console.log(error))
     }
       
     logIn = (request) => {
+        console.log("hi")
         fetch("http://localhost:3000/authenticate", request)
             .then(response => response.json())
             .then(response => {
-                localStorage.setItem('authToken', response.auth_token)
-                this.props.setUser(response.user)
+                console.log(response)
+                if(response.error){
+                    this.props.setErrorState(response.error)
+                } else {
+                    localStorage.setItem('authToken', response.auth_token)
+                    this.props.setUser(response.user)
+                }
             })
             .then(response => {
-                this.props.fetchUserWords()
-                this.props.history.push('/')
+                if(this.props.isLoggedIn){
+                    this.props.fetchUserWords()
+                    this.props.history.push('/')
+                }
             })
             .catch(error => console.log(error))
     }
@@ -101,6 +112,10 @@ export default class RegistrationForm extends Component {
                 <div className="signIn">
                     <h3>{this.state.existingUser ? "Log In" : "Sign Up"}</h3>
                     <form className="form" onSubmit={this.handleSubmit}>
+                        {this.props.isError
+                            ? <h3 style={{color: 'red', "text-transform": "capitalize"}} className="form-error">{this.props.error}</h3>
+                            : null
+                        }
                         {this.loggingIn()}
                         <input 
                             className="form-input"

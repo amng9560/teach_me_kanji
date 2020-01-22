@@ -779,7 +779,7 @@ body {
 
 .kanji-1-info .kanji-data p {
   width: 20vw;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .kanji-1-info button {
@@ -1028,5 +1028,20 @@ body {
   position: relative;
   font-size: 1rem;
   margin: 10px 0;
+}
+
+.search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 10px;
+}
+
+.search-bar input {
+  width: 12vw;
+  padding: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

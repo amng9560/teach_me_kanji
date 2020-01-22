@@ -30,7 +30,13 @@ export default function Content({
     toggleVideo,
     resetVideoState,
     getQuestions,
-    questions
+    questions,
+    searchTerm,
+    updateSearchTerm,
+    error,
+    setErrorState,
+    isError,
+    isLoggedIn
     }) 
 {
     return (
@@ -40,7 +46,9 @@ export default function Content({
                 <Switch>
                     <Route exact path="/" render={() =>  <Home kanji={kanji}/> }/>
                     <Route exact path="/kanji_1" render={() =>  ( 
-                        <KanjiContainer  
+                        <KanjiContainer 
+                            searchTerm={searchTerm}
+                            updateSearchTerm={updateSearchTerm} 
                             words={words} 
                             createWord={createWord} 
                             characters={firstGroup} 
@@ -53,7 +61,9 @@ export default function Content({
                         />)
                     }/>
                     <Route exact path="/kanji_2" render={() =>  (
-                        <KanjiContainer 
+                        <KanjiContainer
+                            searchTerm={searchTerm}
+                            updateSearchTerm={updateSearchTerm}  
                             words={words} 
                             createWord={createWord} 
                             characters={secondGroup} 
@@ -66,7 +76,9 @@ export default function Content({
                         />)
                     }/>
                     <Route exact path="/kanji_3" render={() =>  (
-                        <KanjiContainer 
+                        <KanjiContainer
+                            searchTerm={searchTerm}
+                            updateSearchTerm={updateSearchTerm}  
                             words={words} 
                             createWord={createWord} 
                             characters={thirdGroup} 
@@ -83,6 +95,8 @@ export default function Content({
                             userWords={userWords} 
                             deleteUserWord={deleteUserWord} 
                             updateWord={updateWord}
+                            searchTerm={searchTerm}
+                            updateSearchTerm={updateSearchTerm}
                         />)
                         }/>
                     <Route exact path="/login" render={(props) => (
@@ -90,6 +104,10 @@ export default function Content({
                             {...props} 
                             setUser={setUser} 
                             fetchUserWords={fetchUserWords}
+                            error={error}
+                            isError={isError}
+                            setErrorState={setErrorState}
+                            isLoggedIn={isLoggedIn}
                         />)
                     }/>
                     <Route path="/quiz" render={() => (<Quiz getQuestions={getQuestions} questions={questions}/>)}/>
