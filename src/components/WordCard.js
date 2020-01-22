@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class WordCard extends Component {
-    render() {
-        const { wordItem} = this.props
-        return (
-            <div className="word-list-items">
-                <h3>{wordItem.word}</h3>
-                <p>{wordItem.meaning}</p>
-            </div>
-        )
-    }
+export default function WordCard ({ wordItem }){
+    return (
+        <div className="word-list-items">
+            <h3>{wordItem.word}</h3>
+            <p>{wordItem.meaning}</p>
+            <img src="http://www.i2symbol.com/images/symbols/punctuation/modifier_letter_plus_sign_u02D6_icon_128x128.png" alt="add button"/>
+        </div>
+    )
 }

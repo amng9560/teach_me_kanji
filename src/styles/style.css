@@ -904,22 +904,24 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 5.5rem;
+  padding-left: 3.5rem;
   padding-bottom: 1rem;
 }
 
 .word-list-header h3 {
-  margin-right: 5rem;
+  margin-right: 3.5rem;
 }
 
 .word-list-items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin-bottom: 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 4.5rem;
+  -ms-grid-columns: (15rem)[3];
+      grid-template-columns: repeat(3, 15rem);
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .word-list-items p {
@@ -943,6 +945,11 @@ body {
   color: #d00000a8;
   background-color: #e0e0e0;
   font-size: 3rem;
+}
+
+.word-list-items img {
+  width: 3vw;
+  height: 6vh;
 }
 
 .signInContainer {
