@@ -12,6 +12,8 @@ const BASE_URL = 'http://localhost:3000/'
 class App extends Component {
   state = {
     user: false,
+    isError: false,
+    error: '',
     kanji: [],
     characters: [],
     words: [],
@@ -19,6 +21,7 @@ class App extends Component {
     activeKanji: null,
     toggleVideo: false,
     questions: [],
+    searchTerm: '',
   }
 
   componentWillMount(){
@@ -59,6 +62,14 @@ class App extends Component {
       .then(words => {
         this.setState({ words })
       })
+  }
+
+  setErrorState = (error) => {
+    console.log(error)
+    this.setState({
+      isError: true,
+      error: error.error
+    })
   }
 
   setActiveKanji = (kanji) => {
@@ -114,7 +125,11 @@ class App extends Component {
     const body = JSON.stringify({...word, user_id: user.id})
     return this.fetchCall(`${BASE_URL}words`, "POST", body)
       .then(response => response.json())
-      .then(word => this.setWordState(word))
+      .then(word =>{
+        if(word.word.trim().length !== 0 && word.meaning.trim().length !== 0 ){
+          this.setWordState(word)
+        }
+      })
   }
 
   setWordState = (word) => {
@@ -191,8 +206,41 @@ class App extends Component {
       })
   }
 
+  updateSearchTerm = (event) => {
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
+  filterSearchWord = () => {
+    const { words, searchTerm } = this.state
+    return words.filter(word => {
+      return (
+        word.word.includes(searchTerm) ||
+        word.meaning.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    })
+  }
+
+  filterUserWords = () => {
+    const {　userWords, searchTerm } = this.state
+    return　userWords.filter(word => {
+      return (
+        word.word.includes(searchTerm) ||
+        word.meaning.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    })
+  }
+
+  filterForWords = (word, searchTerm) => {
+    return(
+      word.word.includes(searchTerm) ||
+      word.meaning.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  }
+
   render(){
-    const { characters, words, user, userWords, activeKanji, toggleVideo, questions } = this.state
+    const { characters, user, activeKanji, toggleVideo, questions, searchTerm, error, isError } = this.state
     const firstGroupOfCharacters = characters.slice(0, 17)
     const secondGroupOfCharacters = characters.slice(17, 34)
     const thirdGroupOfCharacters = characters.slice(34, 51)
@@ -201,7 +249,7 @@ class App extends Component {
         <div className="App">
           <UserNav loggedInUser={user} logOutUser={this.logOutUser}/>
             <Content
-              words={words}
+              words={this.filterSearchWord()}
               firstGroup={firstGroupOfCharacters} 
               secondGroup={secondGroupOfCharacters} 
               thirdGroup={thirdGroupOfCharacters}
@@ -209,7 +257,7 @@ class App extends Component {
               kanji={this.state.kanji}
               setUser={this.setUser}
               fetchUserWords={this.fetchUserWords}
-              userWords={userWords}
+              userWords={this.filterUserWords()}
               deleteUserWord={this.deleteUserWord}
               updateWord={this.updateWord}
               setActiveKanji={this.setActiveKanji}
@@ -220,6 +268,12 @@ class App extends Component {
               resetVideoState={this.resetVideoState}
               getQuestions={this.getQuestions}
               questions={questions}
+              searchTerm={searchTerm}
+              updateSearchTerm={this.updateSearchTerm}
+              error={error}
+              isError={isError}
+              setErrorState={this.setErrorState}
+              isLoggedIn={user}
           />
         </div>
       </Router>

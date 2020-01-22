@@ -17,7 +17,7 @@ export default class KanjiQuiz extends Component {
         const { currentQuestion } = this.state
         this.setState(() => {
             return{
-                question: this.props.questions[currentQuestion].characters[0].meaning,
+                question: this.props.questions[currentQuestion].character.meaning,
                 options: this.props.questions[currentQuestion].options,
                 answers: this.props.questions[currentQuestion].answer
             }
@@ -43,12 +43,12 @@ export default class KanjiQuiz extends Component {
         return options.map((option, i) => {
             return <p 
                 key={i}
-                onClick={() => this.checkAnswer(option)} 
+                onClick={() => this.checkAnswer(option.option)} 
                 className={`quiz-component-choice 
-                ${userAnswer === option ? 'selected' : null}
+                ${userAnswer === option.option ? 'selected' : null}
                 `}
             >
-                {option}
+                {option.option}
             </p>
         })
     }
@@ -59,7 +59,7 @@ export default class KanjiQuiz extends Component {
             this.setState(() => {
                 return{
                     disabled: true,
-                    question: this.props.questions[currentQuestion].characters[0].meaning,
+                    question: this.props.questions[currentQuestion].character.meaning,
                     options: this.props.questions[currentQuestion].options,
                     answers: this.props.questions[currentQuestion].answer,
                     userAnswer: null

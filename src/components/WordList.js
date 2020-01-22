@@ -1,8 +1,9 @@
 import React from 'react'
 import WordCard from './WordCard'
 import ProfileWordCard from './ProfileWordCard'
+import SearchBar from './SearchBar'
 
-export default function WordList({ words, userWords, deleteUserWord, updateWord, loading }) {
+export default function WordList({ words, userWords, deleteUserWord, updateWord, searchTerm, updateSearchTerm }) {
     const availableWords = () => {
         return words.map((word, i) => {
             return (
@@ -18,9 +19,10 @@ export default function WordList({ words, userWords, deleteUserWord, updateWord,
             )
         })
     }
-
+    
     return words 
         ? (<div className="word-list">
+            <SearchBar searchTerm={searchTerm} updateSearchTerm={updateSearchTerm}/>
             <div className="word-list-header">
                 <h3>Words:</h3>
                 <h3>Meaning:</h3>
@@ -28,6 +30,7 @@ export default function WordList({ words, userWords, deleteUserWord, updateWord,
             {availableWords()}
             </div>)
         : <div className="profile-word-list">
+            <SearchBar searchTerm={searchTerm} updateSearchTerm={updateSearchTerm}/>
             <div className="profile-word-list-header">
                 <h3>Words:</h3>
                 <h3>Meaning:</h3>
