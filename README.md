@@ -21,7 +21,7 @@ Teach Me Kanji is a web application that allows the user to practice one of the 
 
 ![quiz](/quiz.gif)
 
-**Demo:** [YouTube](https://www.youtube.com/watch?v=vAxnoPUMGUs&feature=youtu.be)
+**Demo:** [YouTube](https://www.youtube.com/watch?v=6aycrqrPIW0&feature=youtu.be)
 
 ## Technologies
 * React
