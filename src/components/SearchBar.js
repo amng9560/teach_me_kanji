@@ -9,7 +9,7 @@ export default function SearchBar({ searchTerm, updateSearchTerm }) {
                     placeholder="Search for Kanji" 
                     value={searchTerm}
                     onChange={updateSearchTerm}
-                    className='add-word-form-input'
+                    className='search-bar-input'
                 />
             </form>
         </section>

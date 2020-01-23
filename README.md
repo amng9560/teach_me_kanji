@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Teach Me Kanji
+> A website to learn and practice Kanji
 
-## Available Scripts
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [To-do List](#to-do-list)
+* [Status](#status)
+* [Credit](#credit)
 
-In the project directory, you can run:
+## General info
+Teach Me Kanji is a web application that allows the user to practice one of the Japanese writing systems, Kanji. It has 51 Kanji for the user to practice and look through to learn. On top of that, it gives the feature to use a machine learning video to practice writing Kanji on a whiteboard. It will tell the user what Kanji it relatively thinks the user is showing. Then the user can take any of the three quizzes that are eight questions long to practice recognizing Kanji.
 
-### `yarn start`
+![homepage/login](/home_page:login.gif)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![kanji_pages](/kanjipages.gif)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![character_info](/characterinfo.gif)
 
-### `yarn test`
+![ml5_video](/ml5video.gif)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![quiz](/quiz.gif)
 
-### `yarn build`
+**Demo:** [YouTube](https://www.youtube.com/watch?v=vAxnoPUMGUs&feature=youtu.be)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies
+* React
+* HTML5
+* CSS
+* Javascript
+* Ruby 
+* Ruby on Rails
+* Ml5
+* P5
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Features
+* View Kanji
+* View information about Kanji
+* Write words that have Kanji
+* Add words to profile
+* Update words in profile to update the word everywhere
+* Delete words only in Profile
+* Search Bar to find words
+* Quiz to test understanding
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## To-do list:
+* Make it to only accept Kanji in the word Field
+* Add more Kanji
+* refactor code
 
-### `yarn eject`
+## Status
+The project is not finished and not deployed.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Credit
+Information for all the Kanji were pulled from [jisho.org](https://jisho.org/) and [kanji-a-day.com](http://www.kanji-a-day.com/100kanji.php)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

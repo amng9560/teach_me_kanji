@@ -13,7 +13,8 @@ export default function WordList({ words, userWords, deleteUserWord, updateWord,
     }
 
     const UserWords = () => {
-        return userWords.map((userWord, i) => {
+        if(userWords.length > 0 && userWords)
+        return userWords.flat().map((userWord, i) => {
             return (
                <ProfileWordCard userWord={userWord} key={i} deleteUserWord={deleteUserWord} updateWord={updateWord}/>
             )

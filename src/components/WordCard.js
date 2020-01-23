@@ -6,7 +6,7 @@ export default function WordCard ({ wordItem, createWord, isLoggedIn }){
             <h3>{wordItem.word}</h3>
             <p>{wordItem.meaning}</p>
             {isLoggedIn
-                ? <img onClick={() => {createWord(wordItem)}} src="http://www.i2symbol.com/images/symbols/punctuation/modifier_letter_plus_sign_u02D6_icon_128x128.png" alt="add button"/>
+                ? <img onClick={() => {createWord(wordItem)}} src="https://www.shareicon.net/data/256x256/2015/09/22/644510_add_512x512.png" alt="add button"/>
                 : null
             }
         </div>

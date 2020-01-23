@@ -50,7 +50,6 @@ export default class RegistrationForm extends Component {
     }
 
     handleSubmit = (event) => {
-        console.log("hello")
         event.preventDefault()
         const request = {
             method: "POST",
@@ -85,11 +84,9 @@ export default class RegistrationForm extends Component {
     }
       
     logIn = (request) => {
-        console.log("hi")
         fetch("http://localhost:3000/authenticate", request)
             .then(response => response.json())
             .then(response => {
-                console.log(response)
                 if(response.error){
                     this.props.setErrorState(response.error)
                 } else {
