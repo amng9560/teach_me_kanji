@@ -20,9 +20,9 @@ export default class Quiz extends Component {
         this.switchQuiz(event.target.textContent)
     }
 
-    componentDidMount(){
-        this.props.getQuestions()
-    }
+    // componentDidMount(){
+    //     this.props.getQuestions()
+    // }
 
     quiz1Questions = () => {
         return this.props.questions.slice(0,8)

@@ -62,10 +62,10 @@ class App extends Component {
       .then(words => {
         this.setState({ words })
       })
+      this.getQuestions()
   }
 
   setErrorState = (error) => {
-    console.log(error)
     this.setState({
       isError: true,
       error: error.error
@@ -134,7 +134,6 @@ class App extends Component {
 
   setWordState = (word) => {
     const { words, userWords, user } = this.state
-    console.log()
     if(this.filterWords(words, word).length === 0){
       this.setState({
         words: [...words, word],
@@ -158,7 +157,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         this.setState({
-          userWords: response.words.flat()
+          userWords: response.words
         })
       })
   }

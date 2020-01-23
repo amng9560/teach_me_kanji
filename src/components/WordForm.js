@@ -33,7 +33,7 @@ export default class WordForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="add-word-form">
-                <h3>Add A Word!</h3>
+                <h3>For Kanji Words!</h3>
                 <input
                     className="add-word-form-input"
                     type="text" 

@@ -23,6 +23,7 @@
         grid-template-columns: repeat(3, 15rem);
         justify-items: center;
         align-items: center;
+        margin-bottom: 5px;
 
         p{
             width: 15vw;
@@ -42,9 +43,32 @@
         }
 
         img {
-            width: 3vw;
-            height: 6vh;
-            cursor: pointer;
+            width: 1.5vw;
+            height: 3vh;
+
+            &,
+            &:link,
+            &:visited {
+                transition: all .2s;
+                position: relative;
+                cursor: pointer;
+            }
+            
+            &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 1rem 2rem $color-black-transparent-2;
+
+                &::after {
+                    transform: scaleX(1.4) scaleY(1.6);
+                    opacity: 0;
+                }
+            }
+            
+            &:active,
+            &:focus {
+                transform: translateY(-0.5px);
+                box-shadow: 0 .5rem 1rem $color-black-transparent-2;
+            }
         }
     }
 }
