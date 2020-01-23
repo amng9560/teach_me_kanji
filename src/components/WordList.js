@@ -3,11 +3,11 @@ import WordCard from './WordCard'
 import ProfileWordCard from './ProfileWordCard'
 import SearchBar from './SearchBar'
 
-export default function WordList({ words, userWords, deleteUserWord, updateWord, searchTerm, updateSearchTerm }) {
+export default function WordList({ words, userWords, deleteUserWord, updateWord, searchTerm, updateSearchTerm, createWord, isLoggedIn }) {
     const availableWords = () => {
         return words.map((word, i) => {
             return (
-                <WordCard wordItem={word} key={i}/>
+                <WordCard wordItem={word} key={i} createWord={createWord} isLoggedIn={isLoggedIn}/>
             )
         })
     }
