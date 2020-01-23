@@ -15,7 +15,8 @@ export default function KanjiContainer ({
     toggleVideo,
     imageModelURL,
     searchTerm,
-    updateSearchTerm  
+    updateSearchTerm,
+    isLoggedIn  
     }) 
 {
     const characterContainer = () => {
@@ -41,7 +42,13 @@ export default function KanjiContainer ({
                     } 
                 </div>
             </div>
-            <WordContainer words={words} createWord={createWord} searchTerm={searchTerm} updateSearchTerm={updateSearchTerm}/>
+            <WordContainer 
+                words={words} 
+                createWord={createWord} 
+                searchTerm={searchTerm} 
+                updateSearchTerm={updateSearchTerm}
+                isLoggedIn={isLoggedIn}
+            />
         </div>
     ) 
 }

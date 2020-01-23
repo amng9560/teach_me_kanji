@@ -47,6 +47,7 @@ export default function Content({
                     <Route exact path="/" render={() =>  <Home kanji={kanji}/> }/>
                     <Route exact path="/kanji_1" render={() =>  ( 
                         <KanjiContainer 
+                            isLoggedIn={isLoggedIn}
                             searchTerm={searchTerm}
                             updateSearchTerm={updateSearchTerm} 
                             words={words} 
@@ -62,6 +63,7 @@ export default function Content({
                     }/>
                     <Route exact path="/kanji_2" render={() =>  (
                         <KanjiContainer
+                            isLoggedIn={isLoggedIn}
                             searchTerm={searchTerm}
                             updateSearchTerm={updateSearchTerm}  
                             words={words} 
@@ -77,6 +79,7 @@ export default function Content({
                     }/>
                     <Route exact path="/kanji_3" render={() =>  (
                         <KanjiContainer
+                            isLoggedIn={isLoggedIn}
                             searchTerm={searchTerm}
                             updateSearchTerm={updateSearchTerm}  
                             words={words} 
