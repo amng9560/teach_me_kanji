@@ -14,7 +14,7 @@ export default function UserNav({ loggedInUser, logOutUser }) {
 
     return (
         <header className="header">
-            <img src={image} alt="logo" className="logo" />
+            <a href="/"><img src={image} alt="logo" className="logo" /></a>
             <nav className="user-nav">
                 {localStorage.getItem('authToken') && loggedInUser
                     ? <NavLink className="user-nav-item" to="/profile">Profile</NavLink>
