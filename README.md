@@ -13,10 +13,6 @@ Teach Me Kanji is a web application that allows the user to practice one of the 
 
 ![homepage/login](/home_page:login.gif)
 
-![kanji_pages](/kanjipages.gif)
-
-![character_info](/characterinfo.gif)
-
 ![ml5_video](/ml5video.gif)
 
 ![quiz](/quiz.gif)
@@ -42,6 +38,10 @@ Teach Me Kanji is a web application that allows the user to practice one of the 
 * Delete words only in Profile
 * Search Bar to find words
 * Quiz to test understanding
+
+![kanji_pages](/kanjipages.gif)
+
+![character_info](/characterinfo.gif)
 
 ## To-do list:
 * Make it to only accept Kanji in the word Field
